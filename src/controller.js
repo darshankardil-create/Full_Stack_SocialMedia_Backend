@@ -3,10 +3,9 @@ import jwt from "jsonwebtoken";
 
 export async function Userinfodoc(req, res) {
   try {
-
     const find = await UserSchema.findById(req.params.id).select("-Password"); //remove credential befor sending to user
 
-    console.log(find)
+    console.log(find);
 
     if (!find) {
       return res
@@ -59,6 +58,12 @@ export async function verifytoken(req, res) {
       const token = req.headers.authorization.split(" ")[1];
 
       const payload = jwt.verify(token, process.env.JWT_SECRET);
+
+      if (!payload) {
+        return res
+          .status(401)
+          .json({ message: "Invalid token please signup again" });
+      }
 
       res.status(200).json({
         message: "Successfully verified token and send payload as res",
