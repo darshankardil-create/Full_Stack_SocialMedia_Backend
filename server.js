@@ -13,7 +13,7 @@ dotenv.config();
 
 app.use(
   cors({
-    origin: ["https://fullstacksocialmediaversal.vercel.app"]
+    origin: ["https://fullstacksocialmediafrontend.vercel.app","http://localhost:3001","http://localhost:3000"]
   }),
 );
 
@@ -44,7 +44,7 @@ async function handleasync() {
 handleasync();
 
 const io = new Server(httpserver, {
-  cors: ["https://fullstacksocialmediaversal.vercel.app"]
+  cors: ["https://fullstacksocialmediafrontend.vercel.app","http://localhost:3001","http://localhost:3000"]
 });
 
 io.on("connection", (socket) => {
