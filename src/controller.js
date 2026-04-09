@@ -144,3 +144,25 @@ export async function sendtokenforsignup(req, res) {
     res.status(500).json({ message: "Failed", error: error.message });
   }
 }
+
+export async function getonlymypost(req,res) {
+  try {
+    const myposts =await UsersPostSchema.find({ UserName: req.params.userid });
+
+    if (!myposts) {
+      res.status(404).send(`No post found for userid:${req.params.userid}`);
+    }
+
+    res
+      .status(200)
+      .json({
+        message: "Successfully find all post from route getonlymypost",
+        myposts: myposts,
+      });
+  } catch (error) {
+    console.log(error);
+    res
+      .status(404)
+      .json({ message: "something went wrong", error: error.message });
+  }
+}
