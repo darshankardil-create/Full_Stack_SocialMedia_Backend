@@ -1,6 +1,11 @@
 # 🌐 Live Website :
 # https://fullstactsocialmediafrontendversal.vercel.app
 
+# Frontend repository:
+## https://github.com/darshankardil-create/fullstactsocialmediafrontendversal
+
+# Backend repository
+
 # 📁 Backend Directory Structure
 
 ```bash
