@@ -167,6 +167,20 @@ export async function getonlymypost(req, res) {
 
 export async function deleteac(req, res) {
   try {
+    const userDoc = await UserSchema.findById(req.params.userid);
+
+    if (!userDoc) {
+      return res.status(404).send("UserDoc not found");
+    }
+
+    const { livepass } = req.body;
+
+    const checpassword = await userDoc.Matchpass(livepass);
+
+    if (!checpassword) {
+      return res.status(401).json({ message: "Wrong credential" });
+    }
+
     const findtodele = await UserSchema.findByIdAndDelete(req.params.userid);
 
     if (!findtodele) {
