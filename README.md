@@ -1,7 +1,7 @@
 # 🌐 Live Website :
 # https://fullstactsocialmediafrontendversal.vercel.app
 
-# Frontend repository:
+# Frontend repository link:
 ## https://github.com/darshankardil-create/fullstactsocialmediafrontendversal
 
 # Backend repository
